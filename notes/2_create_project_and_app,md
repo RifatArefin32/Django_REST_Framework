@@ -1,3 +1,9 @@
+# Create Project
+The following command is used to create a project of the current directory. Usually we create project in root directory.
+```bash
+django-admin startproject django_rest_framework .
+```
+
 # Create an App Package
 - Create a directory, suppose `apps`
 - Create an `__init__.py` file which is important to make the dirctory as package
