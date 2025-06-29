@@ -1,6 +1,6 @@
 import uuid
 from django.db import models
-from accounts.models import CustomUser
+from apps.accounts.models import CustomUser
 
 # Create your models here.
 class Product(models.Model):
@@ -36,7 +36,7 @@ class Order(models.Model):
 
 
 
-class OrderItems(models.Model):
+class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField()
