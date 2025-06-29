@@ -19,7 +19,7 @@ from django.core.management.base import BaseCommand
 from faker import Faker
 import random
 from apps.accounts.models import CustomUser
-from apps.products.models import Product, Order, OrderItem
+from apps.core.models import Product, Order, OrderItem
 
 fake = Faker()
 
