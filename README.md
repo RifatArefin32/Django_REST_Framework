@@ -5,3 +5,4 @@
 - [Create custom user mode](/notes/3_custom_user.md)
 - [Django Models and Relationship](/notes/4_django_models.md)
 - [Custom Command to Add Fake Data](/notes/5_add_fake_data.md)
+- [Request and Response in DRF](/notes/6_request_response.md)
