@@ -39,7 +39,6 @@ urlpatterns += [path('silk/', include('silk.urls', namespace='silk'))]
 Now run migration.
 ```bash
 python manage.py migrate
-python manage.py collectstatic
 ```
 Silk will automatically begin interception of requests and we can proceed to add profiling if required. The UI can be reached at `/silk/`
 
