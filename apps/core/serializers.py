@@ -42,3 +42,9 @@ class OrderSerializer(serializers.ModelSerializer):
         order_items = obj.items.all()
         return sum(order_item.sub_total for order_item in order_items)
     
+
+
+class ProductsInfoSerializer(serializers.Serializer):
+    products = ProductSerializer(many=True)
+    count = serializers.IntegerField()
+    max_price = serializers.FloatField()
