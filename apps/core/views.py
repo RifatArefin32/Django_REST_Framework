@@ -2,9 +2,11 @@ from django.db.models import Max
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
+from rest_framework import generics
 from apps.core.models import Product, Order
 from apps.core.serializers import ProductSerializer, OrderSerializer, ProductsInfoSerializer
 
+# Function Based View
 # Show all products
 @api_view(['GET'])
 def product_list(request):
@@ -36,3 +38,23 @@ def products_info(requeest):
         'max_price': products.aggregate(max_price=Max('price'))['max_price']
     })
     return Response(serializer.data)
+
+
+
+# Class Based View (Generics)
+# Show all products
+class ProductListApiView(generics.ListAPIView):
+    # queryset = Product.objects.all()
+    queryset = Product.objects.filter(stock__gt=10)
+    serializer_class = ProductSerializer
+
+# Show product details
+class ProductDetailApiView(generics.RetrieveAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    lookup_field = 'id'
+
+# Show orders
+class OrderListApiView(generics.ListAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
