@@ -44,5 +44,17 @@ def products_info(requeest):
 # Class Based View (Generics)
 # Show all products
 class ProductListApiView(generics.ListAPIView):
+    # queryset = Product.objects.all()
+    queryset = Product.objects.filter(stock__gt=10)
+    serializer_class = ProductSerializer
+
+# Show product details
+class ProductDetailApiView(generics.RetrieveAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    lookup_field = 'id'
+
+# Show orders
+class OrderListApiView(generics.ListAPIView):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
